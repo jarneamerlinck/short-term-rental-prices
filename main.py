@@ -60,6 +60,10 @@ def go(config: DictConfig):
                     "output_description": "Data with outliers and null values removed",
                     "min_price": config["etl"]["min_price"],
                     "max_price": config["etl"]["max_price"],
+                    "min_lat": config["etl"]["min_lat"],
+                    "max_lat": config["etl"]["max_lat"],
+                    "min_long": config["etl"]["min_long"],
+                    "max_long": config["etl"]["max_long"],
                 },
             )
         if "data_check" in active_steps:
