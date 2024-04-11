@@ -45,17 +45,41 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="A very basic data cleaning")
 
-    parser.add_argument("--input_artifact", type=str, help="", required=True)
+    parser.add_argument(
+        "--input_artifact", type=str, help="Name of the input artifact.", required=True
+    )
 
-    parser.add_argument("--output_artifact", type=str, help="", required=True)
+    parser.add_argument(
+        "--output_artifact",
+        type=str,
+        help="Name of the output artifact.",
+        required=True,
+    )
 
-    parser.add_argument("--output_type", type=str, help="", required=True)
+    parser.add_argument(
+        "--output_type", type=str, help="Type of the output.", required=True
+    )
 
-    parser.add_argument("--output_description", type=str, help="", required=True)
+    parser.add_argument(
+        "--output_description",
+        type=str,
+        help="Description of the output.",
+        required=True,
+    )
 
-    parser.add_argument("--min_price", type=float, help="", required=True)
+    parser.add_argument(
+        "--min_price",
+        type=float,
+        help="Minimum threshold for the price.",
+        required=True,
+    )
 
-    parser.add_argument("--max_price", type=float, help="", required=True)
+    parser.add_argument(
+        "--max_price",
+        type=float,
+        help="Maximum threshold for the price.",
+        required=True,
+    )
 
     args = parser.parse_args()
 
