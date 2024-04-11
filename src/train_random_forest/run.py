@@ -156,7 +156,7 @@ def go(args):
         sk_pipe,
         export_path,
         serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE,
-        # signature=signature,
+        signature=False,
         input_example=X_val.iloc[:2],
     )
 
@@ -191,7 +191,6 @@ def go(args):
     run.log_artifact(artifact)
 
     # Make sure the artifact is uploaded
-    artifact.wait()
 
     # YOUR CODE HERE
     ######################################
@@ -216,6 +215,7 @@ def go(args):
             "feature_importance": wandb.Image(fig_feat_imp),
         }
     )
+    artifact.wait()
 
 
 def plot_feature_importance(pipe, feat_names):
