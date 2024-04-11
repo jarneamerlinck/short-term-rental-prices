@@ -29,6 +29,21 @@ entry_points:
         description: Maximum threshold for the price.
         type: float
 
+      min_lat:
+        description: Minimum threshold for the latitude.
+        type: float
+
+      max_lat:
+        description: Maximum threshold for the latitude.
+        type: float
+
+      min_long:
+        description: Minimum threshold for the longitude.
+        type: float
+
+      max_long:
+        description: Maximum threshold for the longitude.
+        type: float
 
     command: >-
-        python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description}  --min_price {min_price}  --max_price {max_price}
+        python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description}  --min_price {min_price}  --max_price {max_price} --min_lat {min_lat}  --max_lat {max_lat} --min_long {min_long}  --max_long {max_long}

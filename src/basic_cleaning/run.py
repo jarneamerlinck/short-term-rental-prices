@@ -26,7 +26,9 @@ def go(args):
     idx = df["price"].between(args.min_price, args.max_price)
     df = df[idx].copy()
     df["last_review"] = pd.to_datetime(df["last_review"])
-    idx = df["longitude"].between(-74.25, -73.50) & df["latitude"].between(40.5, 41.2)
+    idx = df["longitude"].between(args.min_long, args.max_long) & df[
+        "latitude"
+    ].between(args.min_lat, args.max_lat)
     df = df[idx].copy()
     logger.info("Applied data cleaning")
 
@@ -81,6 +83,33 @@ if __name__ == "__main__":
         required=True,
     )
 
+    parser.add_argument(
+        "--min_long",
+        type=float,
+        help="Minimum threshold for the longitude.",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--max_long",
+        type=float,
+        help="Maximum threshold for the longitude.",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--min_lat",
+        type=float,
+        help="Minimum threshold for the latitude.",
+        required=True,
+    )
+
+    parser.add_argument(
+        "--max_lat",
+        type=float,
+        help="Maximum threshold for the latitude.",
+        required=True,
+    )
     args = parser.parse_args()
 
     go(args)
